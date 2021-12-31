@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans';
+}
+
+html, body{
+    height: 100%;
+    background-color: #EEEEEE;
+    padding: 0 2%;
+}
+
+section.container{
+    max-width: 900px;
+    position: relative;
+    padding: 20px;
+    background-color: #A6F6F1;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    text-align: center;
+}

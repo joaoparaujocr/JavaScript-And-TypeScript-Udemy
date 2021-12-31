@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Formulário</title>
+    </head>
+
+    <body>
+        <section class="container">
+            <form method="post" id="form">
+                <label for="nome">Nome:</label>
+                <input type="text" class="input" id="nome">
+        
+                <label for="sobrenome">Sobrenome:</label>
+                <input type="text" class="input" id="sobrenome">
+
+                <label for="cpf">CPF:</label>
+                <input type="text" class="input" id="cpf">
+
+                <label for="usuario">Usuario:</label>
+                <input type="text" class="input" id="usuario">
+
+                <label for="senha">Senha:</label>
+                <input type="password" class="input" id="senha">
+
+                <label for="repetir-senha">Repetir senha:</label>
+                <input type="password" class="input" id="repetir-senha">
+
+                <button type="submit" id="btn-enviar">Enviar</button>
+            </form>
+        </section>
+
+        <script src="validarCPF.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
