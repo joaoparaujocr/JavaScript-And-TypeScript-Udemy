@@ -7,15 +7,16 @@ document.addEventListener('click', e => {
     }
 })
 
-function carregaPagina(el) {
+async function carregaPagina(el) {
     const href = el.getAttribute('href');
-    fetch(href)
-        .then(response => {
-            if (response.status !== 200) throw new Error(`${response.status} ${response.statusText}`);
-            return response.text()
-        })
-        .then(response => carregaHTML(response))
-        .catch(e => console.error(e))
+    try {
+        const response = await fetch(href);
+        if (response.status !== 200) throw new Error(`${response.status}: ${response.statusText}`);
+        const html = await response.text();
+        carregaHTML(html);
+    } catch (error) {
+        console.error(error)
+    }
 }
 
 function carregaHTML(html) {

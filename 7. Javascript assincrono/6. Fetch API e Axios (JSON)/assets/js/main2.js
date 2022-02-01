@@ -1,6 +1,5 @@
-fetch('assets/json/pessoas.json')
-    .then(resposta => resposta.json())
-    .then(json => carregaElementoNaPagina(json))
+axios('assets/json/pessoas.json')
+    .then(resposta => carregaElementoNaPagina(resposta.data))
 
 function carregaElementoNaPagina(json) {
     const resultado = document.querySelector('.resultado');

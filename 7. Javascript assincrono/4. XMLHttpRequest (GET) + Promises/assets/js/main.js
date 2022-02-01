@@ -1,42 +1,18 @@
-// const request = obj => {
-//     const xhr = new XMLHttpRequest();
-//     xhr.open(obj.method, obj.url, true);
-//     xhr.send();
-
-//     xhr.addEventListener('load', () => {
-//         if (xhr.status >= 200 && xhr.status < 300) {
-//             obj.success(xhr.responseText);
-//         } else {
-//             obj.error(xhr.statusText);
-
-//             // obj.console.error({
-//             //     code: xht.status,
-//             //     msg: xhr.statusText
-//             // });
-//         }
-//     });
-// }
-
 const request = obj => {
-    return new Promise((resolve, reject) => {
-        const xhr = new XMLHttpRequest();
-        xhr.open(obj.method, obj.url, true);
-        xhr.send();
+    const xhr = new XMLHttpRequest();
+    xhr.open(obj.method, obj.url, true);
+    xhr.send();
 
-        xhr.addEventListener('load', () => {
-            if (xhr.status >= 200 && xhr.status < 300) {
-                resolve(xhr.responseText);
-            } else {
-                reject(xhr.statusText);
-
-                // obj.console.error({
-                //     code: xht.status,
-                //     msg: xhr.statusText
-                // });
-            }
-        });
-    })
-
+    xhr.addEventListener('load', () => {
+        if(xhr.status >= 200 && xhr.status < 300) {
+            obj.success(xhr.responseText);
+        } else {
+            obj.error({
+                status: xhr.statusText,
+                code: xhr.status
+            });
+        }
+    });
 }
 
 document.addEventListener('click', e => {
@@ -47,38 +23,22 @@ document.addEventListener('click', e => {
         e.preventDefault();
         carregaPagina(el);
     }
-});
+})
 
-async function carregaPagina(el) {
+function carregaPagina(el) {
     const href = el.getAttribute('href');
 
-    const objConfig = {
-        method: 'GET',
+    request({
+        method: "GET",
         url: href,
-        //Método com o callback
-        // success(response) {
-        //     carregaResultado(response);
-        // },
-        // error(errorText) {
-        //     console.log(errorText);
-        // }
-
-        // Promise
-
-    }
-
-    try {
-        const response = await request(objConfig);
-        carregaResultado(response);
-    } catch (error) {
-        alert(error);
-    }
-
-//     .then(response => {
-//         carregaResultado(response);
-//     })
-//     .catch(e => alert(e));
-// }
+        success(response) {
+            carregaResultado(response);
+        },
+        error(errorText) {
+            const resultado = document.querySelector('.resultado');
+            resultado.innerHTML = errorText.status + ' ' + errorText.code;
+        }
+    })
 }
 
 function carregaResultado(response) {
