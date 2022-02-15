@@ -29,7 +29,13 @@ class DispositivoEletronico {
     }
 }
 
-class Smartphone extends DispositivoEletronico {}
+class Smartphone extends DispositivoEletronico {
+    constructor(nome, cor, modelo) {
+        super(nome);
+        this.cor = cor;
+        this.modelo = modelo;
+    }
+}
 
-const s1 = new Smartphone('Iphone');
+const s1 = new Smartphone('iphone', 'Preto', 'X');
 console.log(s1)

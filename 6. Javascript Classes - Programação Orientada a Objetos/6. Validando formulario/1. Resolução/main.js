@@ -46,7 +46,7 @@ class ValidaFormulario {
             erroText.remove();
         }
 
-        for(let campo of this. formulario.querySelectorAll('.valida')){
+        for(let campo of this.formulario.querySelectorAll('.valida')){
             const label = campo.previousElementSibling.innerHTML;
             if(!campo.value) {
                 this.criaErro(campo, `O campo ${label.slice(0, -1).toLowerCase()} não pode estar em branco`);

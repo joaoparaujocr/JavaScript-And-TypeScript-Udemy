@@ -4,24 +4,33 @@ class ControleRemoto {
         this.volume = 0;
     }
 
-    // Métodos instância
+    //Método de instancia
     aumentarVolume() {
-        this.volume += 2;
+        if (this.volume >= 100) {
+            console.log ('O volume ja está no máximo')
+            return
+        }
+        this.volume ++;
     }
 
     diminuirVolume() {
-        this.volume -= 2;
+        if (this.volume <= 0) {
+            console.log('O volume ja está no mínimo')
+            return
+        }
+        this.volume --;
     }
 
-    // Métodos de estáticos 
+    // Método estático
     static trocaPilha() {
-        console.log('Trocar pilha');
+        console.log('trocando pilha');
     }
 }
 
-const controle1 = new ControleRemoto('LG');
-controle1.aumentarVolume();
-controle1.aumentarVolume();
-controle1.aumentarVolume();
-ControleRemoto.trocaPilha();
-console.log(controle1);
+const tv1 = new ControleRemoto('Sony');
+tv1.volume = 0
+tv1.diminuirVolume()
+tv1.aumentarVolume()
+tv1.aumentarVolume()
+ControleRemoto.trocaPilha()
+console.log(tv1.volume)

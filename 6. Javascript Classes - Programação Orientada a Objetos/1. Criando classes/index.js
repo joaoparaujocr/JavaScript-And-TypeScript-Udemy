@@ -1,30 +1,32 @@
-class Pessoa {
+class PessoaClass {
     constructor(nome, sobrenome) {
         this.nome = nome;
-        this.sobrenome = sobrenome;
+        this.sobrenome = sobrenome
     }
 
     falar() {
-        console.log(`${this.nome} está falando.`)
+        return `${this.nome} ${this.sobrenome} está falando`
     }
 
     comer() {
-        console.log(`${this.nome} está comendo.`)
+        return `${this.nome} ${this.sobrenome} está comendo`
     }
 
     beber() {
-        console.log(`${this.nome} está bebendo.`)
+        return `${this.nome} ${this.sobrenome} está bebendo`
     }
 }
 
-function Pessoa2(nome, sobrenome){
+function PessoaFunction(nome, sobrenome) {
     this.nome = nome;
-    this.sobrenome = sobrenome;
+    this.sobrenome = sobrenome
 }
 
-Pessoa2.prototype.falar = function(){
-    console.log(`${this.nome} está falando.`)
+PessoaFunction.prototype.falar = function(){
+    return `${this.nome} ${this.sobrenome} está bebendo`
 }
 
-const p1 = new Pessoa('Luiz', 'Otávio');
-p1.beber()
+const p1 = new PessoaClass('João', 'Araújo');
+const p2 = new PessoaFunction('Bárbara', 'Penha');
+console.log(p1);
+console.log(p2)

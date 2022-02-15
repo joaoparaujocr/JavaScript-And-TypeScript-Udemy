@@ -59,7 +59,7 @@ cc.depositar(10);
 cc.sacar(110);
 cc.sacar(0.01)
 
-console.log()
+console.log(' ')
 
 const cp = new ContaPoupanca(12, 33, 0);
 cp.depositar(10);
