@@ -16,7 +16,6 @@ exports.register = async (req, res) => {
             req.session.save(() => {
                return res.redirect('/login/index')
             })
-    
             return
         }
 
@@ -24,10 +23,7 @@ exports.register = async (req, res) => {
             req.session.save(() => {
                return res.redirect('/login/index')
             })
-    
-            return
-    
-        return res.send(login.errors)
+        return;
         
     } catch (error) {
         console.log(e)
